@@ -19,6 +19,7 @@ class PricingSpider(scrapy.Spider):
 
     def parse_product_page(self, response):
         item = {}
+        print("URL : ", self)
         product = response.css("div.product_main")
         item["title"] = product.css("h1 ::text").extract_first()
         item['category'] = response.xpath(
